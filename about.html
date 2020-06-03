@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About page</title>
+</head>
+
+<body>
+    <ul>
+        <li>
+            <a href="/">Home</a>
+        </li>
+        <li>
+            <a href="/pages/products.html">Products</a>
+        </li>
+        <li>
+            <a href="/pages/orders.html">Orders</a>
+        </li>
+        <li>
+            <a href="/about.html">About</a>
+        </li>
+    </ul>
+    <h1>About</h1>
+
+    <table>
+        <!-- táblázat -->
+        <caption>Opening hours</caption> <!-- táblázat címe -->
+        <thead>
+            <!-- táblázat fejléce -->
+            <tr>
+                <th>Day</th> <!-- táblázat fejléc oszlop/cella -->
+                <th>Open</th>
+                <th>Close</th> 
+            </tr>
+        </thead>
+        <tbody>
+            <!-- táblázat test/adat -->
+            <tr>
+                <!-- tábázat sorok -->
+                <td>Monday-Friday</td> <!-- táblázat oszlop/cella -->
+                <td>09:00</td>
+                <td rowspan=2>21:00</td> <!-- sorok egybevonása (2) -->
+            </tr>
+            <tr>
+                <td>Saturday</td>
+                <td>10:00</td>
+            </tr>
+            <tr>
+                <td>Sunday</td>
+                <td colspan=2>Closed</td> <!-- oszlopok/cellák egybevonása (2) -->
+            </tr>
+        </tbody>
+        <tfoot>
+            <!-- táblázat lábléc -->
+            <tr>
+                <!-- lábléc sor -->
+                <td colspan=3> <!-- Cellák egybevonása (3) -->
+                    &copy 2020
+                </td> <!-- lábléc cella -->
+            </tr>
+        </tfoot>
+    </table>
+    <!-- <a href="/index.html">Home</a> -->
+    <!-- Link megadása, mely a főoldalra (index.html) visz. -->
+    <!--Ilyen esetben felesleges a domaint is megadni.-->
+    <!--Domainnel együtt abszolút útvonal.-->
+    <!--Anélkül relaítv útvonal. Költöztetés esetén ez teljesen megfelelő.-->
+    <!--"/index.html" - ez egy root url, a domaintől nézi-->
+</body>
+
+</html>
