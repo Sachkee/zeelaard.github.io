@@ -1,2 +1,2 @@
 # zeelaard.github.io
-Demo page.
+It is a demo page.
