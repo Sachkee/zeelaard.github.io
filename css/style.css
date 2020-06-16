@@ -1,20 +1,25 @@
 @import url('https://fonts.googleapis.com/css2?family=Kodchasan&family=Open+Sans&family=Roboto&display=swap');
 
+/* alap betű- és háttérbeállítás */
 html {
     font-family: 'Roboto', sans-serif;
     background-color: rgb(209, 174, 18);
 }
 
+/* body háttér, margó, padka */
 body {
     margin: 0 5%;
     background-color: white;
     padding: 5px 1%;
 }
 
+/* menü szülődivjének padkaállítás */
 .menu-div {
     padding: 5px 0;
 }
 
+/* az akciók szülődivjének beállításai */
+/* overflow szükséges ahhoz, hogy az elemei ne lógjanak ki */
 .action-div {
     background-color: rgb(245, 195, 102);
     margin: 15px 0;
@@ -24,10 +29,12 @@ body {
     overflow: hidden;
 }
 
+/* az akciók szülődivben szereplő h2 és p beállításai */
+/* a width arra utal, hogy a div-nek mekkora részét töltheti be */
 .action-div h2 {
-    text-align: left;
     width: 79%;
     font-size: 26px;
+    text-align: left;
 }
 
 .action-div p {
@@ -36,85 +43,100 @@ body {
     text-align: justify;
 }
 
+/* az akciók szülődivben szereplő képek beállításai */
+/* a jobboldalon történő megjelenítéshez szükséges a float: right; */
+/* a width itt is arra utal, hogy a div-nek mekkora részét töltheti be */
 .action-div img {
-    float: right;
     width: 20%;
+    float: right;
 }
 
+/* elérhetőség oldalon szereplő főcímek balra igazítása */
 .contact {
     text-align: left;
 }
 
+/* menüben szereplő linkek beállítása */
 a {
-    display: inline-block;
+    display: inline-block; /* ezáltal tehetők egymás mellé */
     font-size: 18px;
     font-weight: 200;
     color: rgb(236, 199, 78);
     background-color: rgb(128, 15, 15);
-    text-decoration: none;
+    text-decoration: none; /* a linkre jellemző aláhúzás eltüntetése */
     text-align: center;
     margin: 2px;
-    border-radius: 7px;
+    border-radius: 7px; /* sarok kerekítése */
     padding: 15px;
     width: 22%;
-    min-width: 125px;
+    min-width: 125px; /* minimum szélesség pl böngésző méretezése esetén */
 }
 
+/* link reagálása, ha az egeret fölé mozgatjuk */
 a:hover {
     background-color: rgb(236, 199, 78);
     color: rgb(128, 15, 15);
 }
 
+/* a h1 alaptulajdonságai */
 h1 {
     font-family: 'Open Sans', sans-serif;
     font-weight: bolder;
     text-align: center;
     color: rgb(128, 15, 15);
-    /* text-transform: capitalize; */ /* Minden szó nagybetűvel kezdődik */
-    font-variant: small-caps; /* Minden kisbetű nagy lesz, de kisebbek, mint azok, melyek eredetileg nagyok voltak */
-    font-weight: bold;
+    /* text-transform: capitalize; */ /* minden szó nagybetűvel kezdődik */
+    font-variant: small-caps; /* minden kisbetű nagy lesz, a nagybetűk pedig méretileg picivel nagyobbak lesznek */
 }
 
+/* h1 balra igazítása */
 .h1-left {
     text-align: left;
 }
 
+/* h2 alaptulajdonságai */
 h2 {
     font-family: 'Open Sans', sans-serif;
+    font-weight: bolder;
     text-align: center;
+    color: rgb(128, 15, 15);
     /* text-transform: capitalize; */
     font-variant: small-caps;
-    font-weight: bolder;
-    color: rgb(128, 15, 15);
 }
 
+/* h3 alaptulajdonságai */
 h3 {
     font-family: 'Open Sans', sans-serif;
+    font-weight: bold;
+    text-align: left;
     color: rgb(161, 18, 18);
     /* text-transform: capitalize; */
     font-variant: small-caps;
-    font-weight: bold;
 }
 
+/* p alap betűmérete */
 p {
     font-size: 20px;
 }
 
+/* táblázat beállítása */
 table {
-    width: 97%;
+    width: 97%; /* mérete a szülőelemhez viszonyítva */
     /* border-collapse: collapse; */
-    border-spacing: 0 2px;
+    border-spacing: 0 2px; /* a fehér elválasztó határok megjelenítése */
 }
 
+/* nyitvatartási táblázat beállításai */
 .opening-div table {
     width: 25%;
     border: solid 1px black;
 }
 
+/* nyitvatartási cellák beállításai (csak a szebb megjelenítés miatt) */
 .opening-div table td {
     width: 5%;
 }
 
+/* fejlécek alapbeállítása */
 th {
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
     color: rgb(24, 167, 24);
@@ -122,36 +144,39 @@ th {
     font-size: 24px;
 }
 
+/* sorok magasságának megadása */
 tr {
     height: 40px;
 }
 
-/* tr:hover {
-    background-color: rgb(233, 164, 143);
-} */
-
+/* háttérszín a páratlan... */
 .tr-odd {
     background-color: rgb(255, 216, 164);
 }
 
-.tr-odd:hover {
-    background-color: rgb(233, 164, 143);
-}
-
+/* ...és a páros sorokra */
 .tr-even {
     background-color: rgb(255, 250, 201);
 }
 
+/* sorok háttérszínének változtatása a páratlan... */
+.tr-odd:hover {
+    background-color: rgb(233, 164, 143);
+}
+
+/* ...és a páros sorok esetén, ha az egér fölé kerül */
 .tr-even:hover {
     background-color: rgb(233, 164, 143);
 }
 
+/* cellák alapbeállításai */
 td {
     font-size: 20px;
     color: rgb(128, 15, 15);
     font-style: italic;
 }
 
+/* képek alapbeállításai */
 img {
     width: 32%;
     border-radius: 7px;
@@ -159,16 +184,19 @@ img {
     margin: 3px;
 }
 
+/* fejlécek képeinek (sketch) alapbeállításai */
 .img-th {
     width: 48px;
     border-radius: 0;
     box-shadow: none;
 }
 
+/* fejlécek képeinek (sketch) balra... */
 .left {
     float: left;
 }
 
+/* ...és jobbra igazítása */
 .right {
     float: right;
 }
