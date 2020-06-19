@@ -10,7 +10,6 @@
 </head>
 
 <body>
-
     <nav class="navbar navbar-expand-sm bg-dark navbar-dark">
         <a class="navbar-brand" href="/index.html">
             <img src="/img/wolf.jpg" alt="Logo" style="width:48px;">
@@ -37,6 +36,38 @@
         </ul>
     </nav>
 
+    <div class="container-fluid weather">
+        <div class="row">
+            <div class="col-4">
+                <div class="form-inline">
+                    <label class="label-weather" for="selWeather">Mai nap:</label>
+                    <select class="form-control" id="selWeather">
+                        <option value="0">Hétfő</option>
+                        <option value="1">Kedd</option>
+                        <option value="2">Szerda</option>
+                        <option value="3">Csütörtök</option>
+                        <option value="4">Péntek</option>
+                        <option value="5">Szombat</option>
+                        <option value="6">Vasárnap</option>
+                    </select>
+                    <button onclick="btnClick()" class="btn btn-warning" id="btnWeather">Időjárás lekérése</button>
+                </div>
+            </div>
+            <div class="col-4"></div>
+            <div class="col-4 col-weather">
+                <div class="form-group">
+                    <span class="span-weather">
+                         
+                    </span>
+                    °C <br> Mai ajánlatunk:
+                    <span class="span-offer">
+
+                    </span>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <div class="container-fluid">
         <div class="row">
             <div class="col-1">
@@ -47,9 +78,10 @@
                     <h2>Isten hozott Zeelaard falatozójában!</h2>
                     <p>
                         A fenti menü segítségével átböngészheted az étlapunkat, értesülhetsz heti akcióinkról illetve
-                        megtekintheted
-                        az elérhetőségeinket. <br>
-                        Kísérleti jelleggel elindítottuk az online rendelést is.
+                        megtekintheted az elérhetőségeinket. <br>
+                        Kísérleti jelleggel elindítottuk az online rendelést is. <br>
+                        A fenti navigációs panel alatt látható a várható napi időjárás, a jobb oldalon megjelenített termék 
+                        (ez hőmérséklettől függ) fél áron kapható!
                     </p>
                     <div>
                         <img src="/img/burger1.jpg" alt="no pict">
@@ -65,7 +97,7 @@
             </div>
         </div>
     </div>
-
+    <script src="/js/main.js"></script>
 </body>
 
 </html>

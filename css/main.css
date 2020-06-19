@@ -13,7 +13,21 @@ h3 { color: rgb(128, 15, 15); font-variant: small-caps; }
 p { font-size: 20px ;}
 li { font-size: 18px; }
 
-.action-div {
+.weather { 
+    font-family: sans-serif;
+    background-color: rgb(128, 15, 15);
+    padding: 10px 1%;
+    overflow: hidden;
+    border-radius: 0 0 8px 8px;
+    color: rgb(255, 226, 129);
+    font-size: 20px;
+ }
+
+ .col-weather { text-align: right;}
+
+ #selWeather { margin: 0 20px; }
+
+.action-div, .contact-div {
     background-color: rgb(245, 195, 102);
     margin: 15px 0;
     box-shadow: 5px 5px 7px grey;
@@ -25,6 +39,10 @@ li { font-size: 18px; }
 .action-div img {
     width: 20%;
     float: right;
+}
+
+.contact-div img {
+    width: 40%;
 }
 
 img {

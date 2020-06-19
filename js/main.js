@@ -1,3 +1,68 @@
+const weeklyWeather = [-3, 18, 29, 21, 6, 24, -1];
+const tempLimit = [0, 15, 20, 25, 99];
+const todayOffer = ["forró csoki", "meleg tea", "finom süti", "fagyi", "jéghideg limonádé"];
+
+function btnClick() {
+    dailyOffer(false);
+}
+
+autoStart();
+
+function autoStart() {
+    dailyOffer(true);
+    const selWeather = document.querySelector("select#selWeather");
+    let todayDay = checkToday();
+    selWeather.selectedIndex = todayDay;
+}
+
+
+function dailyOffer(boolToday = false) {
+    let d = new Date();
+    const showTodayTemp = document.querySelector("span.span-weather");
+    const showTodayOffer = document.querySelector("span.span-offer");
+    let todayTemp = getTemp(boolToday);
+    let tempLimit = getLimit(todayTemp);
+    let todayOffer = getOffer(tempLimit);
+    showTodayTemp.innerHTML = d.getFullYear() + "-" + (d.getMonth()+1) + "-" + d.getDate() + ", " + todayTemp;
+    showTodayOffer.innerHTML = todayOffer;
+}
+
+function checkToday() {
+    let d = new Date()
+        if (d.getDay() == 0) {
+            todayDay = 6;
+        } else {
+            todayDay = d.getDay() - 1;
+        }
+    return todayDay
+}
+
+function getTemp(boolToday) {
+    let todayDay = 0;
+    if (boolToday == true) {
+        todayDay = checkToday();
+    } else {
+        todayDay = parseInt(document.querySelector("select#selWeather").value);
+    }
+    const todayTemp = weeklyWeather[todayDay];
+    return todayTemp;
+}
+
+function getLimit(todayTemp) {
+    let todayLimit = 0;
+    for (let i = 0; i < tempLimit.length; i++) {
+        if (todayTemp < tempLimit[i]) {
+            todayLimit = i;
+            break;
+        }
+    }
+    return todayLimit;
+}
+
+function getOffer(tempLimit) {
+    return todayOffer[tempLimit]
+}
+
 function orderButtonClick() {
     const inputName = document.querySelector("input#name"); /* A név mező értékének beolvasása */
     const inputEmail = document.querySelector("input#email"); /* Az email mező értékének beolvasása */
