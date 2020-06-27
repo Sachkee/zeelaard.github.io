@@ -2,66 +2,119 @@ const weeklyWeather = [-3, 18, 29, 21, 6, 24, -1];
 const tempLimit = [0, 15, 20, 25, 99];
 const todayOffer = ["forró csoki", "meleg tea", "finom süti", "fagyi", "jéghideg limonádé"];
 
-function btnClick() {
-    dailyOffer(false);
+const temps = {
+    minMaxAvg: function () {
+        const showMin = document.querySelector("span#minTemp");
+        let minTemp = temps.getMinTemp();
+        showMin.innerHTML = minTemp;
+
+        const showMax = document.querySelector("span#maxTemp");
+        let maxTemp = temps.getMaxTemp();
+        showMax.innerHTML = maxTemp;
+
+        const showAvg = document.querySelector("span#avgTemp");
+        let avgTemp = temps.getAvgTemp();
+        showAvg.innerHTML = avgTemp;
+    },
+    getTemp: function (boolToday) {
+        let todayDay = 0;
+        if (boolToday == true) {
+            todayDay = otherFunctions.checkToday();
+        } else {
+            todayDay = parseInt(document.querySelector("select#selWeather").value);
+        }
+        let todayTemp = weeklyWeather[todayDay];
+        return this.getTempUnit(todayTemp);
+    },
+    getMinTemp: function () {
+        let minTemp = weeklyWeather[0];
+        for (let i = 0; i < weeklyWeather.length; i++) {
+            if (weeklyWeather[i] < minTemp) {
+                minTemp = weeklyWeather[i];
+            }
+        }
+        return this.getTempUnit(minTemp);
+    },
+    getMaxTemp: function () {
+        let maxTemp = weeklyWeather[0];
+        for (let i = 0; i < weeklyWeather.length; i++) {
+            if (weeklyWeather[i] > maxTemp) {
+                maxTemp = weeklyWeather[i];
+            }
+        }
+        return this.getTempUnit(maxTemp);
+    },
+    getAvgTemp: function () {
+        let sumTemp = 0;
+        for (let i = 0; i < weeklyWeather.length; i++) {
+            sumTemp = sumTemp + weeklyWeather[i];
+        }
+        let avgTemp = sumTemp / weeklyWeather.length;
+        return this.getTempUnit(avgTemp);
+    },
+    getTempUnit: function (tempC) {
+        const radioTemp = document.querySelector(".form-check-input:checked").id;
+        if (radioTemp == "tempC") {
+            return tempC.toFixed(1) + " °C";
+        } else {
+            return this.getTempF(tempC).toFixed(1) + " °F";
+        }
+    },
+    getTempF: function (tempC) {
+        return tempC * 1.8 + 32;
+    }
 }
 
-autoStart();
-
-function autoStart() {
-    dailyOffer(true);
-    const selWeather = document.querySelector("select#selWeather");
-    let todayDay = checkToday();
-    selWeather.selectedIndex = todayDay;
-}
-
-
-function dailyOffer(boolToday = false) {
-    let d = new Date();
-    const showTodayTemp = document.querySelector("span.span-weather");
-    const showTodayOffer = document.querySelector("span.span-offer");
-    let todayTemp = getTemp(boolToday);
-    let tempLimit = getLimit(todayTemp);
-    let todayOffer = getOffer(tempLimit);
-    showTodayTemp.innerHTML = d.getFullYear() + "-" + (d.getMonth()+1) + "-" + d.getDate() + ", " + todayTemp;
-    showTodayOffer.innerHTML = todayOffer;
-}
-
-function checkToday() {
-    let d = new Date()
+const otherFunctions = {
+    autoStart: function() {
+        this.dailyOffer(true);
+        const selWeather = document.querySelector("select#selWeather");
+        let todayDay = this.checkToday();
+        selWeather.selectedIndex = todayDay;
+        temps.minMaxAvg();
+    },    
+    dailyOffer: function(boolToday = false) {
+        let d = new Date();
+        const showTodayTemp = document.querySelector("span.span-weather");
+        const showTodayOffer = document.querySelector("span.span-offer");
+        let todayTemp = temps.getTemp(boolToday);
+        let tempLimit = this.getLimit(todayTemp);
+        let todayOffer = this.getOffer(tempLimit);
+        showTodayTemp.innerHTML = d.getFullYear() + "-" + (d.getMonth() + 1) + "-" + d.getDate() + ", " + todayTemp;
+        showTodayOffer.innerHTML = todayOffer;
+    },    
+    checkToday: function() {
+        let d = new Date()
+        let todayDay = 0;
         if (d.getDay() == 0) {
             todayDay = 6;
         } else {
             todayDay = d.getDay() - 1;
         }
-    return todayDay
-}
-
-function getTemp(boolToday) {
-    let todayDay = 0;
-    if (boolToday == true) {
-        todayDay = checkToday();
-    } else {
-        todayDay = parseInt(document.querySelector("select#selWeather").value);
-    }
-    const todayTemp = weeklyWeather[todayDay];
-    return todayTemp;
-}
-
-function getLimit(todayTemp) {
-    let todayLimit = 0;
-    for (let i = 0; i < tempLimit.length; i++) {
-        if (todayTemp < tempLimit[i]) {
-            todayLimit = i;
-            break;
+        return todayDay
+    },    
+    getLimit: function(todayTemp) {
+        let todayLimit = 0;
+        for (let i = 0; i < tempLimit.length; i++) {
+            if (todayTemp < tempLimit[i]) {
+                todayLimit = i;
+                break;
+            }
         }
+        return todayLimit;
+    },    
+    getOffer: function(tempLimit) {
+        return todayOffer[tempLimit]
     }
-    return todayLimit;
 }
 
-function getOffer(tempLimit) {
-    return todayOffer[tempLimit]
+otherFunctions.autoStart();
+
+function btnClick() {
+    otherFunctions.dailyOffer(false);
+    temps.minMaxAvg();
 }
+
 
 function orderButtonClick() {
     const inputName = document.querySelector("input#name"); /* A név mező értékének beolvasása */

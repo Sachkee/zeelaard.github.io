@@ -38,9 +38,9 @@
 
     <div class="container-fluid weather">
         <div class="row">
-            <div class="col-4">
+            <div class="col-6">
+                <label class="label-weather" for="selWeather">Időjárás:</label>
                 <div class="form-inline">
-                    <label class="label-weather" for="selWeather">Mai nap:</label>
                     <select class="form-control" id="selWeather">
                         <option value="0">Hétfő</option>
                         <option value="1">Kedd</option>
@@ -50,19 +50,46 @@
                         <option value="5">Szombat</option>
                         <option value="6">Vasárnap</option>
                     </select>
+                    <div class="form-check" style="padding-right: 10px">
+                        <input class="form-check-input" type="radio" name="radio-temp" id="tempC" checked>
+                        <label for="tempC">°C </label>
+                    </div>
+                    <div class="form-check" style="padding-right: 10px">
+                        <input class="form-check-input" type="radio" name="radio-temp" id="tempF">
+                        <label for="tempC">°F </label>
+                    </div>
+
                     <button onclick="btnClick()" class="btn btn-warning" id="btnWeather">Időjárás lekérése</button>
                 </div>
             </div>
-            <div class="col-4"></div>
-            <div class="col-4 col-weather">
+            <div class="col-1"></div>
+            <div class="col-5 col-weather">
                 <div class="form-group">
                     <span class="span-weather">
-                         
+
                     </span>
-                    °C <br> Mai ajánlatunk:
+                    <br> Mai ajánlatunk:
                     <span class="span-offer">
 
                     </span>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-4">
+                <div class="form-group">
+                    Minimum: <span id="minTemp"></span>
+                </div>
+            </div>
+            <div class="col-4">
+                <div class="form-group" style="text-align: center;">
+                    Átlag: <span id="avgTemp"></span>
+                </div>
+            </div>
+            <div class="col-4">
+                <div class="form-group" style="text-align: right;">
+                    Maximum: <span id="maxTemp"></span>
                 </div>
             </div>
         </div>
@@ -80,7 +107,8 @@
                         A fenti menü segítségével átböngészheted az étlapunkat, értesülhetsz heti akcióinkról illetve
                         megtekintheted az elérhetőségeinket. <br>
                         Kísérleti jelleggel elindítottuk az online rendelést is. <br>
-                        A fenti navigációs panel alatt látható a várható napi időjárás, a jobb oldalon megjelenített termék 
+                        A fenti navigációs panel alatt látható a várható napi időjárás, a jobb oldalon megjelenített
+                        termék
                         (ez hőmérséklettől függ) fél áron kapható!
                     </p>
                     <div>
