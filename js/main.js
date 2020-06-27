@@ -1,7 +1,6 @@
 const weeklyWeather = [-3, 18, 29, 21, 6, 24, -1];
 const tempLimit = [0, 15, 20, 25, 99];
 const todayOffer = ["forró csoki", "meleg tea", "finom süti", "fagyi", "jéghideg limonádé"];
-
 const temps = {
     minMaxAvg: function () {
         const showMin = document.querySelector("span#minTemp");
@@ -63,8 +62,7 @@ const temps = {
     getTempF: function (tempC) {
         return tempC * 1.8 + 32;
     }
-}
-
+};
 const otherFunctions = {
     autoStart: function() {
         this.dailyOffer(true);
@@ -106,7 +104,7 @@ const otherFunctions = {
     getOffer: function(tempLimit) {
         return todayOffer[tempLimit]
     }
-}
+};
 
 otherFunctions.autoStart();
 
